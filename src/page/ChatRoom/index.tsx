@@ -1,11 +1,17 @@
-import Header from "./component/Header.tsx";
-import ChatRoomComponent from "./component/ChatRoomComponent.tsx";
+import SubPage from "./component/SubPage.tsx";
+import {useState} from "react";
+import {userDto} from "../../data/User.Type.ts";
+import {Container} from "react-bootstrap";
 
 export default function ChatRoom(){
+  const [userLoginDto, setUserLoginDto] = useState<userDto | undefined>(undefined);
+
+
   return(
     <>
-      <Header/>
-      <ChatRoomComponent room={1} username={'user'}/>
+      <Container>
+        <SubPage userLoginDto={userLoginDto} setUserLoginDto={setUserLoginDto}/>
+      </Container>
     </>
   )
 }
